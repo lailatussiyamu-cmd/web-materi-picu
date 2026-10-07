@@ -17,30 +17,28 @@ Lalu buka http://localhost:8788
 | `materi.html` + `app.js` + `style.css` | Halaman materi (modul, slide, checklist) |
 | `materi.js` | **Data materi** — satu-satunya file yang perlu diubah untuk memperbarui isi |
 | `ruang3d.css` + `ruang3d.js` | Animasi ruang PICU 3D (seksi "Perjalanan pelatihan") |
+| `deploy.sh` + `wrangler.jsonc` | Deploy ke Cloudflare |
 | `img/` | Logo, foto galeri, favicon, gambar pratinjau WhatsApp (`og-image.jpg`) |
 
-## Deploy ke Cloudflare Pages
-Yang diunggah adalah **seluruh isi folder ini** (semua file di atas + folder `img/`).
-Jangan hanya sebagian, nanti gambar atau animasi hilang.
+## Deploy ke Cloudflare
+Web online di **https://materi-picu-rssa.pelatihan-picu.workers.dev** (Cloudflare Workers, aset statis).
 
-**Cara A — upload langsung (tanpa Git):**
-1. Masuk ke dash.cloudflare.com → Workers & Pages → Create → Pages → *Upload assets*.
-2. Beri nama proyek `materi-picu-rssa`, lalu seret **folder** `web-materi-picu` (bukan file satu per satu).
-3. Klik Deploy. Web tersedia di `https://materi-picu-rssa.pages.dev`.
-
-**Cara B — lewat terminal (Wrangler):**
+Cara memperbarui web:
 ```
-npx wrangler login
-npx wrangler pages deploy . --project-name materi-picu-rssa
+git add -A
+git commit -m "Keterangan singkat perubahan"
+./deploy.sh
 ```
+`deploy.sh` membangun folder `dist/` dari commit terakhir (tanpa `.git`, README, `index-lama.html`),
+men-deploy-nya, lalu push ke GitHub. Perlu login sekali: `npx wrangler login`.
 
-**Cara C — dari GitHub (disarankan):** hubungkan repo di Pages; *Framework preset*: None,
-*Build command*: kosong, *Build output directory*: `/`. Setiap perubahan yang di-push otomatis ter-deploy.
+**Jangan** menjalankan `wrangler deploy` dengan konfigurasi lain atau meng-upload folder ini apa adanya:
+folder `.git` ikut online dan riwayat commit bisa dibaca publik.
 
-Jika nama proyek atau domain berbeda, ganti juga alamat di tag `og:url` / `og:image`
+Jika alamat web berubah (mis. domain RS), ganti juga alamat di tag `og:url` / `og:image`
 pada `index.html` dan `materi.html` (supaya pratinjau link di WhatsApp tampil).
 
-Untuk memperbarui materi: ubah `materi.js`, lalu deploy ulang.
+Kode sumber: https://github.com/lailatussiyamu-cmd/web-materi-picu
 
 ## Riwayat perubahan (git)
 Folder ini memakai git. Setelah mengubah file:
