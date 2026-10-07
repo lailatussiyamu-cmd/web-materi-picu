@@ -1,6 +1,6 @@
 /* Ruang PICU 3D — seksi "Perjalanan pelatihan" */
 #perjalanan{position:relative;height:600vh;background:#0E2A47}
-.r3-sticky{position:sticky;top:72px;height:calc(100vh - 72px);height:calc(100svh - 72px);overflow:hidden;
+.r3-sticky{position:sticky;top:var(--hdr,72px);height:calc(100vh - var(--hdr,72px));height:calc(100svh - var(--hdr,72px));overflow:hidden;
   background:radial-gradient(120% 90% at 50% 30%,#163C63 0%,#0B2545 70%)}
 .r3-view{position:absolute;left:50%;top:50%;width:1200px;height:700px;margin:-350px 0 0 -600px;perspective:900px;
   transform:translate(var(--dx,0),var(--dy,0)) scale(var(--s,1))}
