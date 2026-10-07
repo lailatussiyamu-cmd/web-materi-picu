@@ -1,5 +1,5 @@
 /* Ruang PICU 3D — seksi "Perjalanan pelatihan" */
-#perjalanan{position:relative;height:700vh;background:#0E2A47}
+#perjalanan{position:relative;height:600vh;background:#0E2A47}
 .r3-sticky{position:sticky;top:72px;height:calc(100vh - 72px);height:calc(100svh - 72px);overflow:hidden;
   background:radial-gradient(120% 90% at 50% 30%,#163C63 0%,#0B2545 70%)}
 .r3-view{position:absolute;left:50%;top:50%;width:1200px;height:700px;margin:-350px 0 0 -600px;perspective:900px;
@@ -79,20 +79,11 @@
 .r3-foot{position:absolute;left:8px;top:10px;width:24px;height:22px;background:#F7C531;color:#141414;font-size:13px;display:grid;place-items:center;
   clip-path:polygon(50% 0,100% 100%,0 100%)}
 .r3-pt{overflow:visible}
-.r3-lap{background:#9AA5B1;border-radius:3px}
-.r3-lapscr{background:#33414F;border-radius:4px;padding:4px}
-.r3-pre{height:100%;background:#fff;border-radius:2px;padding:5px 6px;font:800 7px/1.2 Manrope,sans-serif;color:#0B2545;position:relative}
-.r3-pre b{display:block;color:#1E63B5;font-size:8px}
-.r3-pre span{display:block;color:#55677F;font-weight:700;margin:2px 0 4px}
-.r3-pre>i{display:block;height:4px;background:#E7F0FC;border-radius:2px;position:relative;overflow:hidden;margin-bottom:5px}
-.r3-pre>i::after{content:"";position:absolute;inset:0;width:35%;background:#14B8A6;animation:r3fill 4s ease-in-out infinite}
-.r3-pre em{display:inline-block;font-style:normal;width:14px;height:10px;margin-right:3px;border-radius:2px;background:#EEF3F9;text-align:center;line-height:10px;font-size:6px}
-.r3-pre em.on{background:#1E63B5;color:#fff}
 .r3-cl{position:absolute;inset:0;background:#fff;border-radius:3px;border:4px solid #8B5E3C;padding:5px;font:800 6px/1 Manrope,sans-serif;color:#0B2545}
 .r3-cl b{display:block;margin-bottom:5px}
 .r3-cl i{display:block;height:5px;margin:5px 0 0 9px;background:#E3EAF0;border-radius:2px;position:relative}
 .r3-cl i::before{content:"";position:absolute;left:-9px;top:-1px;width:6px;height:6px;border-radius:1px;background:#14B8A6;opacity:.25}
-#perjalanan[data-st="3"] .r3-cl i::before,#perjalanan[data-st="5"] .r3-cl i::before{animation:r3tick 4s steps(1) infinite}
+#perjalanan[data-st="2"] .r3-cl i::before,#perjalanan[data-st="4"] .r3-cl i::before{animation:r3tick 4s steps(1) infinite}
 .r3-cl i:nth-of-type(2)::before{animation-delay:.6s!important}.r3-cl i:nth-of-type(3)::before{animation-delay:1.2s!important}
 .r3-cl i:nth-of-type(4)::before{animation-delay:1.8s!important}.r3-cl i:nth-of-type(5)::before{animation-delay:2.4s!important}
 
@@ -101,16 +92,16 @@
 .r3-who svg{filter:drop-shadow(0 4px 3px rgba(11,37,69,.18))}
 .r3-who{animation:r3breath 4s ease-in-out infinite}
 .r3-penguji,.r3-ticks,.r3-badge{opacity:0;transition:opacity .6s}
-#perjalanan[data-st="5"] .r3-penguji,#perjalanan[data-st="5"] .r3-ticks,#perjalanan[data-st="6"] .r3-badge{opacity:1}
+#perjalanan[data-st="4"] .r3-penguji,#perjalanan[data-st="4"] .r3-ticks,#perjalanan[data-st="5"] .r3-badge{opacity:1}
 .r3-ticks{display:flex;justify-content:space-between;align-items:center}
 .r3-ticks span{width:34px;height:34px;border-radius:50%;background:#14B8A6;color:#fff;font:800 20px/34px Manrope,sans-serif;text-align:center;
   box-shadow:0 0 0 5px rgba(20,184,166,.25);transform:scale(0)}
-#perjalanan[data-st="5"] .r3-ticks span{animation:r3pop .5s cubic-bezier(.3,1.6,.5,1) forwards}
+#perjalanan[data-st="4"] .r3-ticks span{animation:r3pop .5s cubic-bezier(.3,1.6,.5,1) forwards}
 .r3-ticks span:nth-child(2){animation-delay:.25s!important}.r3-ticks span:nth-child(3){animation-delay:.5s!important}
 .r3-ticks span:nth-child(4){animation-delay:.75s!important}.r3-ticks span:nth-child(5){animation-delay:1s!important}
 .r3-medal{text-align:center;font-family:Manrope,sans-serif;color:#fff}
 .r3-medal svg{width:150px;height:150px;margin:0 auto;filter:drop-shadow(0 0 30px rgba(224,169,59,.8))}
-#perjalanan[data-st="6"] .r3-medal svg{animation:r3bob 3s ease-in-out infinite}
+#perjalanan[data-st="5"] .r3-medal svg{animation:r3bob 3s ease-in-out infinite}
 .r3-medal b{display:inline-block;font-size:19px;margin-top:4px;background:#0B2545;padding:5px 16px;border-radius:99px;box-shadow:0 6px 18px rgba(11,37,69,.3)}
 .r3-medal span{display:table;margin-left:auto!important;margin-right:auto!important;margin-top:4px;background:#E0A93B;color:#3B2604;font-weight:800;font-size:15px;padding:4px 14px;border-radius:99px}
 .r3-tag{display:flex;align-items:center;gap:8px;justify-content:center;font:800 15px/1 Manrope,sans-serif;color:#0B2545;background:#fff;border-radius:99px;
@@ -144,7 +135,7 @@
 #perjalanan:not([data-st="0"]) .r3-hint{opacity:0}
 .r3-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .r3-confetti i{position:absolute;top:-20px;left:var(--x);width:8px;height:14px;background:var(--c);border-radius:2px;opacity:0}
-#perjalanan[data-st="6"] .r3-confetti i{animation:r3fall 3.2s linear var(--d) infinite}
+#perjalanan[data-st="5"] .r3-confetti i{animation:r3fall 3.2s linear var(--d) infinite}
 
 @media (max-width:700px){
   .r3-card{left:12px;right:12px;width:auto;bottom:12px;padding:16px 18px 14px;border-radius:14px}

@@ -115,7 +115,7 @@
 
   /* ---------- dinding, lantai, plafon ---------- */
   const W = 1000, H = 460, Z0 = -1000, Z1 = 400, D = Z1 - Z0, ZC = (Z0 + Z1) / 2;
-  face('r3-floor', W, D, T(0, 0, ZC) + ' rotateX(90deg)', '<i class="r3-spot" data-s="1" style="left:70px;top:990px"></i><i class="r3-spot" data-s="2" style="left:40px;top:620px"></i><i class="r3-spot" data-s="3 5" style="left:670px;top:620px"></i><i class="r3-spot" data-s="4" style="left:170px;top:110px"></i>');
+  face('r3-floor', W, D, T(0, 0, ZC) + ' rotateX(90deg)', '<i class="r3-spot" data-s="1" style="left:40px;top:620px"></i><i class="r3-spot" data-s="2 4" style="left:670px;top:620px"></i><i class="r3-spot" data-s="3" style="left:170px;top:110px"></i>');
   face('r3-ceil', W, D, T(0, -H, ZC) + ' rotateX(-90deg)', '<i style="left:180px;top:300px"></i><i style="left:620px;top:300px"></i><i style="left:180px;top:800px"></i><i style="left:620px;top:800px"></i>');
 
   const backHTML = `
@@ -190,19 +190,12 @@
   stand('r3-iv', 388, -270, -900, 34, 54, 0, '<svg viewBox="0 0 34 54"><path d="M17 0v6" stroke="#B7C0CA" stroke-width="3"/><rect x="5" y="6" width="24" height="32" rx="7" fill="#EAF6FF" stroke="#9CC5E8" stroke-width="2"/><rect x="5" y="20" width="24" height="18" rx="6" fill="#BFE3F2"/><path d="M17 38v16" stroke="#9CC5E8" stroke-width="2"/></svg><i class="r3-drip"></i>');
   box(388, -150, -888, 48, 30, 24, '#F2F5F8', { front: '<div class="r3-pump"><b>2.4</b><i></i></div>', cls: 'r3-dev' });
 
-  /* ---------- stasiun 1: pretest ---------- */
-  box(-300, -98, 120, 210, 8, 104, '#CFAE82');
-  [[-395, 75], [-205, 75], [-395, 165], [-205, 165]].forEach(([x, z]) => box(x, 0, z, 8, 98, 8, '#A88A63'));
-  face('r3-lap', 80, 6, T(-300, -107, 128) + ' rotateX(90deg)');
-  face('r3-lapscr', 84, 56, T(-300, -134, 100) + ' rotateX(-12deg)', '<div class="r3-pre"><b>PRETEST</b><span>Soal 7 / 20</span><i></i><em>A</em><em class="on">B</em><em>C</em><em>D</em></div>');
-  stand('r3-who', -430, 0, 140, 64, 141, 25, person({ head: 'hijab', hc: '#1E2A44', tag: 'RSSA', item: 'remote' }));
-
-  /* ---------- stasiun 2: kelas teori ---------- */
+  /* ---------- stasiun 1: kelas teori ---------- */
   stand('r3-who', -400, 0, -110, 64, 141, 55, person({ head: 'hair', mask: false, scrub: '#FFFFFF', dark: '#55677F', item: 'remote', skin: skin[1] }));
   stand('r3-who', -230, 0, -60, 60, 132, 45, person({ head: 'hijab', hc: '#6B4FA3', tag: 'RSSA' }));
   stand('r3-who', -160, 0, -150, 60, 132, 50, person({ head: 'cap', hc: '#2F5FB3', tag: 'RSSA', skin: skin[2] }));
 
-  /* ---------- stasiun 3 & 5: skill lab ---------- */
+  /* ---------- stasiun 2 & 4: skill lab ---------- */
   box(300, -96, -250, 230, 8, 130, '#DDE6EE');
   [[195, -305], [405, -305], [195, -195], [405, -195]].forEach(([x, z]) => box(x, 0, z, 8, 96, 8, '#9AA5B1'));
   box(300, -104, -265, 170, 6, 100, '#2E8B57');
@@ -213,19 +206,19 @@
   stand('r3-who r3-penguji', 190, 0, -400, 64, 141, -40, person({ head: 'hair', mask: true, scrub: '#13406E', dark: '#0B2545', item: 'clip', hc: '#1A1210' }));
   stand('r3-ticks', 320, -175, -260, 240, 60, -40, '<span>✓</span><span>✓</span><span>✓</span><span>✓</span><span>✓</span>');
 
-  /* ---------- stasiun 4: praktik klinik ---------- */
+  /* ---------- stasiun 3: praktik klinik ---------- */
   stand('r3-who', -100, 0, -700, 60, 132, 20, person({ head: 'hijab', hc: '#1E2A44', tag: 'RSSA', item: 'book' }));
   stand('r3-who', -60, 0, -800, 64, 141, 15, person({ head: 'cap', hc: '#14B8A6', scrub: '#1E63B5', item: 'clip', skin: skin[1] }));
   stand('r3-who r3-fam', 120, 0, -760, 60, 132, -10, person({ head: 'hijab', hc: '#C0563F', scrub: '#8A6E5A', dark: '#5B4636', tag: '', skin: skin[0] }));
 
-  /* ---------- stasiun 6: kompeten ---------- */
+  /* ---------- stasiun 5: kompeten ---------- */
   stand('r3-badge', 0, -190, -420, 230, 230, 0, `<div class="r3-medal"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M38 70 26 116l22-10 12 14 6-44zM82 70l12 46-22-10-12 14-6-44z" fill="#1E63B5"/><circle cx="60" cy="52" r="42" fill="#E0A93B"/><circle cx="60" cy="52" r="33" fill="#FCF1DA"/><path d="M44 52l11 11 21-23" fill="none" stroke="#0B8576" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Perawat PICU</b><span>Kompeten</span></div>`);
   const conf = sec.querySelector('.r3-confetti');
   if (conf) conf.innerHTML = Array.from({ length: 28 }, (_, i) => `<i style="--x:${(i * 37) % 100}%;--d:${(i % 7) * .35}s;--c:${['#1E63B5', '#E0A93B', '#14B8A6', '#F06A8A'][i % 4]}"></i>`).join('');
 
   // label stasiun yang melayang
-  [[1, -300, -230, 120, 30, 'Pretest'], [2, -470, -430, -300, 48, 'Kelas teori'], [3, 300, -250, -250, -25, 'Latihan skill'],
-   [4, -260, -300, -830, 22, 'Praktik klinik'], [5, 300, -250, -250, -46, 'Ujian skill']].forEach(([s, x, y, z, r, t]) => {
+  [[1, -470, -430, -300, 48, 'Kelas teori'], [2, 300, -250, -250, -25, 'Latihan skill'],
+   [3, -260, -300, -830, 22, 'Praktik klinik'], [4, 300, -250, -250, -46, 'Ujian skill']].forEach(([s, x, y, z, r, t]) => {
     const n = stand('r3-tag', x, y, z, 170, 40, r, `<span>${s}</span>${t}`);
     n.dataset.s = s;
   });
@@ -234,7 +227,6 @@
   // [x, y, z, yaw, pitch] — yaw positif = menoleh kanan, pitch negatif = menunduk
   const CAM = [
     [0, -265, 1150, 0, 1],
-    [-60, -255, 390, -26, -13],
     [120, -255, 250, -48, -5],
     [70, -300, 130, 25, -24],
     [40, -320, -330, -22, -20],
