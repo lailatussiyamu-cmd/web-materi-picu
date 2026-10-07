@@ -21,7 +21,7 @@ Lalu buka http://localhost:8788
 | `img/` | Logo, foto galeri, favicon, gambar pratinjau WhatsApp (`og-image.jpg`) |
 
 ## Deploy ke Cloudflare
-Web online di **https://pelatihan.picu-rssa.workers.dev** (Cloudflare Workers, aset statis).
+Web online di **https://materi.pelatihan-picu.workers.dev** (Cloudflare Workers, aset statis).
 
 Cara memperbarui web:
 ```
