@@ -237,7 +237,10 @@
   const steps = [...sec.querySelectorAll('.r3-step')];
   const dots = [...sec.querySelectorAll('.r3-dots button')];
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  let cur = CAM[0].slice(), target = CAM[0].slice(), stage = -1, mx = 0, my = 0;
+  // Kamera selalu berjalan di sepanjang jalur antar tahap (tidak memotong lewat dinding/benda),
+  // dengan kecepatan dibatasi, sehingga gulir cepat tidak membuat tampilan berantakan.
+  const MAX_STEP = .07; // tahap per frame
+  let pCur = 0, pTarget = 0, stage = -1, mx = 0, my = 0, ox = 0, oy = 0;
 
   function progress() {
     const r = sec.getBoundingClientRect();
@@ -245,24 +248,27 @@
     return Math.min(1, Math.max(0, -r.top / total)) * (N - 1);
   }
   const pin = new URLSearchParams(location.search).get('r3'); // ?r3=N mengunci tahap (untuk pengecekan)
-  function computeTarget() {
-    const p = pin !== null ? Math.min(N - 1, +pin || 0) : progress();
+  function readTarget() {
+    pTarget = pin !== null ? Math.min(N - 1, Math.max(0, +pin || 0)) : progress();
+  }
+  function camAt(p) {
     const i = Math.min(N - 2, Math.floor(p));
     let f = p - i;
     f = reduce ? Math.round(f) : ease(Math.min(1, Math.max(0, (f - .2) / .6)));
-    target = CAM[i].map((v, k) => v + (CAM[i + 1][k] - v) * f);
-    const s = Math.round(p);
-    if (s !== stage) {
-      stage = s;
-      sec.dataset.st = s;
-      steps.forEach((el, k) => { el.classList.toggle('on', k === s); el.setAttribute('aria-hidden', k === s ? 'false' : 'true'); });
-      dots.forEach((el, k) => el.setAttribute('aria-current', k === s ? 'step' : 'false'));
-      world.querySelectorAll('[data-s]').forEach(el => el.classList.toggle('on', el.dataset.s.split(' ').includes(String(s))));
-    }
+    return CAM[i].map((v, k) => v + (CAM[i + 1][k] - v) * f);
+  }
+  function setStage(s) {
+    if (s === stage) return;
+    stage = s;
+    sec.dataset.st = s;
+    steps.forEach((el, k) => { el.classList.toggle('on', k === s); el.setAttribute('aria-hidden', k === s ? 'false' : 'true'); });
+    dots.forEach((el, k) => el.setAttribute('aria-current', k === s ? 'step' : 'false'));
+    world.querySelectorAll('[data-s]').forEach(el => el.classList.toggle('on', el.dataset.s.split(' ').includes(String(s))));
   }
   function apply() {
-    const [x, y, z, yaw, pitch] = cur;
-    world.style.transform = `translateZ(${P}px) rotateX(${pitch + my}deg) rotateY(${yaw + mx}deg) translate3d(${-x}px,${-y}px,${-z}px)`;
+    const [x, y, z, yaw, pitch] = camAt(pCur);
+    world.style.transform = `translateZ(${P}px) rotateX(${pitch + oy}deg) rotateY(${yaw + ox}deg) translate3d(${-x}px,${-y}px,${-z}px)`;
+    setStage(Math.round(pCur));
   }
   function fit() {
     const w = sticky.clientWidth, h = sticky.clientHeight;
@@ -274,17 +280,18 @@
   }
   let raf = 0;
   function loop() {
-    let moving = false;
-    for (let k = 0; k < 5; k++) {
-      const d = target[k] - cur[k];
-      if (Math.abs(d) > .05) { cur[k] += d * (reduce ? 1 : .1); moving = true; } else cur[k] = target[k];
-    }
+    const d = pTarget - pCur;
+    if (reduce || Math.abs(d) < .002) pCur = pTarget;
+    else pCur += Math.sign(d) * Math.min(Math.abs(d) * .12 + .002, MAX_STEP);
+    ox += (mx - ox) * .1; oy += (my - oy) * .1;
     apply();
+    const moving = pCur !== pTarget || Math.abs(mx - ox) > .01 || Math.abs(my - oy) > .01;
+    sec.classList.toggle('r3-moving', moving && Math.abs(d) > .05);
     raf = moving ? requestAnimationFrame(loop) : 0;
   }
   const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
-  addEventListener('scroll', () => { computeTarget(); kick(); }, { passive: true });
-  addEventListener('resize', () => { fit(); computeTarget(); kick(); });
+  addEventListener('scroll', () => { readTarget(); kick(); }, { passive: true });
+  addEventListener('resize', () => { fit(); readTarget(); kick(); });
   if (!reduce && matchMedia('(pointer:fine)').matches) {
     sticky.addEventListener('pointermove', e => {
       const r = sticky.getBoundingClientRect();
@@ -301,6 +308,6 @@
     scrollTo({ top, behavior: reduce ? 'auto' : 'smooth' });
   }));
 
-  fit(); computeTarget(); cur = target.slice(); apply();
-  sec.r3snap = () => { computeTarget(); cur = target.slice(); apply(); };
+  fit(); readTarget(); pCur = pTarget; apply();
+  sec.r3snap = () => { readTarget(); pCur = pTarget; apply(); };
 })();

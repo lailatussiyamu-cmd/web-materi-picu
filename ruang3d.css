@@ -4,8 +4,9 @@
   background:radial-gradient(120% 90% at 50% 30%,#163C63 0%,#0B2545 70%)}
 .r3-view{position:absolute;left:50%;top:50%;width:1200px;height:700px;margin:-350px 0 0 -600px;perspective:900px;
   transform:translate(var(--dx,0),var(--dy,0)) scale(var(--s,1))}
-.r3-world{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
-.r3-f{position:absolute;left:0;top:0;overflow:hidden}
+.r3-world{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
+/* sisi belakang tidak digambar: lebih ringan & mencegah kedip di Safari iPhone */
+.r3-f{position:absolute;left:0;top:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .r3-f svg{display:block;width:100%;height:100%}
 .sh0{background:var(--c)}
 .sh1{background:linear-gradient(rgba(11,37,69,.13),rgba(11,37,69,.13)) var(--c)}
@@ -141,6 +142,17 @@
   .r3-card{left:12px;right:12px;width:auto;bottom:12px;padding:16px 18px 14px;border-radius:14px}
   .r3-step p{font-size:14.5px}
   .r3-hint{top:12px;bottom:auto;right:auto;left:50%;transform:translateX(-50%);font-size:13px}
+}
+
+/* saat kamera melaju (gulir cepat) animasi kecil dijeda supaya HP tidak berat */
+#perjalanan.r3-moving .r3-world *{animation-play-state:paused!important}
+/* HP: matikan efek yang berat di-render */
+@media (max-width:700px),(pointer:coarse){
+  .r3-card{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
+  .r3-ceil i{box-shadow:none}
+  .r3-who{animation:none}
+  .r3-who svg,.r3-medal svg{filter:none}
+  .r3-step{transition:opacity .25s,visibility .25s;transform:none}
 }
 
 @keyframes r3scroll{to{transform:translateX(-50%)}}
