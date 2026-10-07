@@ -121,8 +121,9 @@
   box-shadow:0 20px 50px rgba(11,37,69,.35);color:#0B2545}
 .r3-eyebrow{margin:0 0 4px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0B8576}
 .r3-steps{list-style:none;margin:0;padding:0;display:grid}
-.r3-step{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .45s,transform .45s,visibility .45s}
-.r3-step.on{opacity:1;visibility:visible;transform:none}
+/* hanya satu teks tampil: yang lama langsung hilang, yang baru muncul pelan (tidak tumpang tindih saat gulir cepat) */
+.r3-step{grid-area:1/1;visibility:hidden;opacity:0}
+.r3-step.on{visibility:visible;opacity:1;animation:r3in .35s ease-out}
 .r3-step small{display:block;font-size:13px;font-weight:800;color:#1E63B5;margin-bottom:2px}
 .r3-step h3{margin:0 0 8px;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-.025em}
 .r3-step p{margin:0;font-size:15.5px;color:#55677F;line-height:1.6}
@@ -152,9 +153,9 @@
   .r3-ceil i{box-shadow:none}
   .r3-who{animation:none}
   .r3-who svg,.r3-medal svg{filter:none}
-  .r3-step{transition:opacity .25s,visibility .25s;transform:none}
 }
 
+@keyframes r3in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes r3scroll{to{transform:translateX(-50%)}}
 @keyframes r3blink{50%{opacity:0}}
 @keyframes r3bob{50%{transform:translateY(-6px)}}
