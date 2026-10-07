@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pelatihan PICU Dasar RSSA</title>
+<meta name="description" content="Materi online Pelatihan PICU Dasar RSUD Dr. Saiful Anwar: modul, slide, dan checklist ujian skill untuk peserta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ruang3d.css">
+<style>
+  :root{
+    --navy:#0B2545;      /* warna utama */
+    --navy-2:#13406E;
+    --blue:#1E63B5;      /* aksi & tautan */
+    --ice:#EEF3F9;       /* latar section */
+    --line:#D7E0EB;
+    --text:#0B2545;
+    --muted:#55677F;
+    --gold:#C8962E;      /* penanda ujian skill */
+    --white:#FFFFFF;
+    --wrap:1160px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{margin:0;background:var(--white);color:var(--text);font-family:Manrope,system-ui,sans-serif;
+    font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  @media (max-width:640px){.wrap{padding:0 16px}}
+
+  /* header */
+  header{border-bottom:1px solid var(--line);background:var(--white);position:sticky;top:0;z-index:10}
+  .bar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo{width:38px;height:38px;border:2px solid var(--navy);border-radius:8px;display:grid;place-items:center}
+  .logo svg{width:18px;height:18px}
+  .brand b{display:block;font-size:16px;line-height:1.2;font-weight:800;letter-spacing:-.01em}
+  .brand small{display:block;font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.2}
+  nav{display:flex;align-items:center;gap:28px}
+  nav a.link{font-size:15px;font-weight:600;text-decoration:none;color:var(--muted)}
+  nav a.link:hover{color:var(--navy)}
+  @media (max-width:760px){nav a.link{display:none}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;
+    border-radius:6px;font-weight:700;font-size:15.5px;text-decoration:none;border:2px solid transparent;transition:background .15s,border-color .15s,color .15s}
+  .btn-navy{background:var(--navy);color:var(--white)}
+  .btn-navy:hover{background:var(--navy-2)}
+  .btn-line{border-color:var(--navy);color:var(--navy)}
+  .btn-line:hover{background:var(--navy);color:var(--white)}
+  .btn-sm{min-height:40px;padding:0 16px;font-size:14.5px}
+
+  /* hero */
+  .hero{padding:96px 0 88px}
+  @media (max-width:760px){.hero{padding:56px 0 56px}}
+  .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:72px;align-items:end}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+  .org{font-size:15px;font-weight:700;color:var(--blue);margin:0 0 22px;display:flex;align-items:center;gap:12px}
+  .org::before{content:"";width:32px;height:2px;background:var(--blue)}
+  h1{font-size:clamp(40px,6vw,76px);line-height:1.02;letter-spacing:-.045em;font-weight:800;margin:0 0 28px}
+  .lead{font-size:clamp(17px,1.7vw,19.5px);color:var(--muted);max-width:52ch;margin:0 0 36px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px}
+
+  .figures{border-left:2px solid var(--navy);padding-left:28px;display:grid;gap:26px}
+  @media (max-width:900px){.figures{border-left:0;padding-left:0;border-top:2px solid var(--navy);padding-top:24px;grid-template-columns:repeat(3,1fr);gap:12px}}
+  .figures b{display:block;font-size:clamp(34px,4.4vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1}
+  .figures span{display:block;font-size:14.5px;color:var(--muted);font-weight:600;margin-top:6px;line-height:1.35}
+
+  /* sections */
+  section.block{padding:96px 0}
+  @media (max-width:760px){section.block{padding:64px 0}}
+  .ice{background:var(--ice)}
+  .head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px}
+  @media (max-width:900px){.head{grid-template-columns:1fr;gap:12px;margin-bottom:32px}}
+  .head h2{font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-.035em;margin:0;font-weight:800}
+  .head p{margin:0;color:var(--muted);max-width:48ch}
+
+  /* tiga kelompok */
+  .tracks{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--navy)}
+  @media (max-width:900px){.tracks{grid-template-columns:1fr}}
+  .track{padding:28px 28px 32px 0;border-right:1px solid var(--line);text-decoration:none;display:block}
+  .track + .track{padding-left:28px}
+  .track:last-child{border-right:0}
+  @media (max-width:900px){.track,.track + .track{padding:24px 0;border-right:0;border-bottom:1px solid var(--line)}}
+  .track .code{font-size:14px;font-weight:800;color:var(--blue)}
+  .track h3{font-size:24px;letter-spacing:-.02em;margin:6px 0 10px;line-height:1.2}
+  .track p{margin:0 0 18px;color:var(--muted);font-size:15.5px}
+  .track .meta{font-size:14.5px;font-weight:700}
+  .track:hover h3{color:var(--blue)}
+
+  /* daftar materi pelatihan */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+  .chip{font:inherit;font-size:14.5px;font-weight:700;min-height:40px;padding:0 16px;border-radius:6px;cursor:pointer;
+    border:1.5px solid var(--line);background:var(--white);color:var(--text)}
+  .chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--white)}
+  .table{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .thead,.trow a{display:grid;grid-template-columns:90px 1fr 110px 110px 120px;gap:16px;align-items:center;padding:0 24px}
+  .thead{min-height:48px;font-size:13.5px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--line);background:#F8FAFD}
+  .trow a{min-height:64px;padding-top:12px;padding-bottom:12px;text-decoration:none;border-bottom:1px solid var(--line)}
+  .trow:last-child a{border-bottom:0}
+  .trow a:hover{background:#F8FAFD}
+  .trow .c{font-weight:800;color:var(--blue);font-size:15px}
+  .trow .t{font-weight:700;line-height:1.35}
+  .trow .n{font-size:15px;color:var(--muted);font-weight:600}
+  .trow .n.zero{color:#B3BFCD}
+  .trow .s{font-size:14px;font-weight:700;color:#8A6417}
+  .trow .s::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:1px}
+  .grp{padding:14px 24px;font-size:14px;font-weight:800;background:var(--ice);border-bottom:1px solid var(--line);color:var(--navy-2)}
+  @media (max-width:760px){
+    .thead{display:none}
+    .trow a{grid-template-columns:64px 1fr;gap:4px 12px;padding:14px 16px}
+    .trow .n,.trow .s{grid-column:2;font-size:13.5px}
+    .trow .n.zero{display:none}
+    .grp{padding:12px 16px}
+  }
+  .empty{padding:24px;color:var(--muted)}
+
+  /* alur */
+  .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--navy);counter-reset:s}
+  @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.steps{grid-template-columns:1fr}}
+  .steps li{padding:24px 24px 8px 0;counter-increment:s}
+  .steps li::before{content:"Langkah " counter(s);display:block;font-size:14px;font-weight:800;color:var(--blue);margin-bottom:8px}
+  .steps h3{margin:0 0 6px;font-size:20px;letter-spacing:-.015em}
+  .steps p{margin:0;color:var(--muted);font-size:15.5px}
+
+  /* cta */
+  .cta{background:var(--navy);color:var(--white);padding:80px 0}
+  .cta-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+  @media (max-width:760px){.cta{padding:56px 0}.cta-grid{grid-template-columns:1fr;gap:24px}}
+  .cta h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-.03em;line-height:1.1;margin:0 0 12px}
+  .cta p{margin:0;color:#B9C9DD;max-width:54ch}
+  .btn-white{background:var(--white);color:var(--navy)}
+  .btn-white:hover{background:var(--ice)}
+
+  footer{background:var(--navy);color:#8FA6C2;font-size:14px;border-top:1px solid rgba(255,255,255,.12)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:28px;padding-bottom:36px}
+
+  /* logo */
+  .brand img{height:54px;width:auto;display:block}
+  @media (max-width:640px){.brand img{height:38px}}
+
+  /* hero iklan */
+  .hero{padding:72px 0 88px;background:linear-gradient(180deg,#FFFFFF 0%,#EEF3F9 100%)}
+  .hero-grid{grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}.hero{padding:44px 0 64px}}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#FBF1DC;color:#7A5410;font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px;margin:0 0 20px}
+  .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  .organizer{display:flex;align-items:center;gap:14px;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+  .organizer img{height:58px;width:auto}
+  .organizer span{font-size:14.5px;color:var(--muted);line-height:1.4}
+  .organizer b{display:block;color:var(--text);font-size:15.5px}
+  .photo{position:relative}
+  .photo img.main{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px;display:block;box-shadow:0 30px 60px -30px rgba(11,37,69,.45)}
+  .float{position:absolute;background:var(--white);border-radius:12px;padding:14px 18px;box-shadow:0 16px 40px -16px rgba(11,37,69,.35)}
+  .float b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--navy)}
+  .float span{font-size:13.5px;font-weight:600;color:var(--muted)}
+  .f1{left:-28px;bottom:36px}
+  .f2{right:-20px;top:32px}
+  .f2 b{color:var(--gold)}
+  @media (max-width:900px){.f1{left:12px;bottom:-24px}.f2{right:12px;top:-20px}.photo{margin:20px 0 12px}}
+
+  /* pita keunggulan */
+  .perks{background:var(--navy);color:var(--white)}
+  .perks .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+  .perk{padding:32px 28px 32px 0;border-right:1px solid rgba(255,255,255,.14)}
+  .perk + .perk{padding-left:28px}
+  .perk:last-child{border-right:0}
+  .perk b{display:block;font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.04em;line-height:1}
+  .perk h3{margin:10px 0 4px;font-size:18px}
+  .perk p{margin:0;color:#B9C9DD;font-size:15px}
+  @media (max-width:760px){.perks .wrap{grid-template-columns:1fr}.perk,.perk + .perk{padding:22px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.14)}.perk:last-child{border-bottom:0}}
+
+  /* kontak */
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:stretch}
+  @media (max-width:900px){.contact-grid{grid-template-columns:1fr;gap:28px}}
+  .contact-list{list-style:none;margin:0;padding:0;border-top:2px solid var(--navy)}
+  .contact-list li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .ic{width:44px;height:44px;border-radius:10px;background:var(--ice);display:grid;place-items:center}
+  .ic svg{width:20px;height:20px}
+  .contact-list small{display:block;font-size:13.5px;font-weight:700;color:var(--muted)}
+  .contact-list a,.contact-list span{font-weight:700;font-size:16.5px;text-decoration:none}
+  .contact-list a:hover{color:var(--blue)}
+  .map{border:1px solid var(--line);border-radius:14px;overflow:hidden;min-height:340px;background:var(--ice)}
+  .map iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+
+  footer .wrap{align-items:center}
+  .foot-brand{display:flex;align-items:center;gap:12px}
+  .foot-brand img{height:44px;width:auto;background:#fff;border-radius:8px;padding:4px}
+  /* tautan pelatihan (sama dengan s.id) */
+  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--navy)}
+  @media (max-width:900px){.info-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.info-grid{grid-template-columns:1fr}}
+  .info-grid a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+  .info-grid a b{display:block;font-size:17px;font-weight:800;letter-spacing:-.01em}
+  .info-grid a span{display:block;font-size:14.5px;color:var(--muted)}
+  .info-grid a svg{width:18px;height:18px;flex:none;color:var(--blue)}
+  .info-grid a:hover b{color:var(--blue)}
+  .sosmed{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:24px;font-size:15px;color:var(--muted);font-weight:600}
+  .sosmed a{min-height:40px;display:inline-flex;align-items:center;padding:0 16px;border:1.5px solid var(--line);border-radius:6px;text-decoration:none;color:var(--navy);font-weight:700}
+  .sosmed a:hover{border-color:var(--navy)}
+  /* galeri dokumentasi */
+  .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px}
+  .mosaic .big{grid-column:span 2;grid-row:span 2}
+  @media (max-width:900px){.mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}}
+  @media (max-width:520px){.mosaic{grid-auto-rows:130px;gap:8px}}
+  .tile{position:relative;padding:0;border:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--ice);display:block;width:100%;height:100%}
+  .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .tile:hover img{transform:scale(1.05)}
+  .tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;color:#fff;font-size:14px;font-weight:700;text-align:left;
+    background:linear-gradient(180deg,transparent,rgba(11,37,69,.85))}
+  .tile.big figcaption{font-size:17px;padding:40px 20px 16px}
+  .gal-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;color:var(--muted);font-size:15px}
+
+  /* lightbox */
+  dialog.lb{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);width:100%}
+  dialog.lb::backdrop{background:rgba(6,18,36,.88)}
+  .lb img{width:100%;max-height:78vh;object-fit:contain;display:block;border-radius:10px}
+  .lb-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;color:#fff}
+  .lb-bar p{margin:0;font-weight:700;font-size:15px}
+  .lb-btns{display:flex;gap:8px}
+  .lb-btns button{font:inherit;font-weight:700;min-width:44px;min-height:44px;border-radius:8px;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;cursor:pointer;padding:0 14px}
+  .lb-btns button:hover{background:rgba(255,255,255,.12)}
+
+  /* pita foto angkatan */
+  .band{position:relative;color:#fff;padding:120px 0;background:var(--navy) url("img/galeri/angkatan-1.jpg") center 40%/cover no-repeat}
+  .band::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,37,69,.92) 0%,rgba(11,37,69,.7) 55%,rgba(11,37,69,.35) 100%)}
+  .band .wrap{position:relative}
+  .band .badge{background:rgba(255,255,255,.14);color:#fff}
+  .band h2{font-size:clamp(30px,4.2vw,52px);line-height:1.06;letter-spacing:-.035em;margin:0 0 16px;max-width:16ch}
+  .band p{margin:0 0 32px;color:#D3DFEE;max-width:50ch;font-size:clamp(16px,1.6vw,18.5px)}
+  .band-stats{display:flex;flex-wrap:wrap;gap:12px 44px}
+  .band-stats b{display:block;font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.04em;line-height:1}
+  .band-stats span{font-size:14.5px;color:#B9C9DD;font-weight:600}
+  @media (max-width:760px){.band{padding:80px 0}.band::before{background:rgba(11,37,69,.82)}}
+
+  /* cta dengan foto */
+  .cta{position:relative;background:var(--navy) url("img/galeri/kelas-lebar.jpg") center/cover no-repeat}
+  .cta::before{content:"";position:absolute;inset:0;background:rgba(11,37,69,.86)}
+  .cta .wrap{position:relative}
+
+  /* animasi muncul saat di-scroll (aktif hanya bila JS jalan & gerakan tidak dikurangi) */
+  .js-reveal .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .js-reveal .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js-reveal .reveal{opacity:1;transform:none}}
+  /* header: dua logo, logo pelatihan lebih besar */
+  .bar{height:auto;min-height:96px;padding-top:10px;padding-bottom:10px}
+  .logos{display:flex;align-items:center;gap:18px}
+  .brand img{height:76px}
+  .rssa{display:flex;align-items:center;gap:10px;padding-left:18px;border-left:1px solid var(--line)}
+  .rssa img{height:62px;width:auto;display:block}
+  .rssa span{font-size:13px;color:var(--muted);line-height:1.3;font-weight:600}
+  .rssa b{display:block;color:var(--text);font-size:14.5px;font-weight:800}
+  nav{gap:22px}
+  @media (max-width:1180px){.rssa > span{display:none}}
+  @media (max-width:1024px){nav a.link{display:none}}
+  @media (max-width:640px){.bar{min-height:76px}.brand img{height:54px}.rssa{padding-left:12px}.rssa img{height:46px}.logos{gap:12px}}
+  .hero .lead{margin-bottom:0}
+
+  /* animasi gambar hero */
+  .photo{isolation:isolate}
+  .ph-frame{border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(11,37,69,.45);animation:phIn 1s cubic-bezier(.2,.7,.2,1) both}
+  .photo img.main{box-shadow:none;border-radius:0;animation:kenburns 18s ease-in-out infinite alternate;transform-origin:60% 40%}
+  .photo::before{content:"";position:absolute;inset:-14px -14px 14px 14px;border:2px solid var(--gold);border-radius:22px;z-index:-1;opacity:.55;animation:phIn 1.2s .15s cubic-bezier(.2,.7,.2,1) both}
+  .float{animation:popIn .7s cubic-bezier(.2,.8,.3,1.3) both, bob 5s ease-in-out infinite}
+  .f1{animation-delay:.55s,1.3s}
+  .f2{animation-delay:.8s,2.1s}
+  .hero-grid > div:first-child > *{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero-grid > div:first-child > :nth-child(2){animation-delay:.1s}
+  .hero-grid > div:first-child > :nth-child(3){animation-delay:.2s}
+  @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.12) translate(-1.5%,1%)}}
+  @keyframes phIn{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:none}}
+  @keyframes popIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @media (max-width:900px){.photo::before{inset:-10px -6px 10px 6px}}
+  @media (prefers-reduced-motion:reduce){.ph-frame,.photo img.main,.photo::before,.float,.hero-grid > div:first-child > *{animation:none!important}}
+  /* ===== gaya segar & berwarna ===== */
+  :root{
+    --mpd:#1E63B5; --mpd-bg:#E7F0FC;
+    --mpi:#A86F0E; --mpi-c:#E0A93B; --mpi-bg:#FCF1DA;
+    --mpp:#0B8576; --mpp-c:#14B8A6; --mpp-bg:#DDF4EF;
+  }
+  .head h2[data-k]::before{content:attr(data-k);display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  .band .head h2::before{color:#fff}
+
+  /* hero: ornamen lembut */
+  .hero{position:relative;overflow:hidden}
+  .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(10px);pointer-events:none}
+  .hero::before{width:520px;height:520px;right:-140px;top:-160px;background:radial-gradient(circle,rgba(20,184,166,.22),transparent 65%)}
+  .hero::after{width:460px;height:460px;left:-160px;bottom:-200px;background:radial-gradient(circle,rgba(30,99,181,.18),transparent 65%)}
+  .hero .wrap{position:relative;z-index:1}
+  .perk:nth-child(1) b{color:#8EC5FF}.perk:nth-child(2) b{color:#5EEAD4}.perk:nth-child(3) b{color:#F6C564}
+
+  /* kurikulum: kartu berwarna */
+  .tracks{border-top:0;gap:20px}
+  .kcard{--c:var(--mpd);--bg:var(--mpd-bg);position:relative;display:flex;flex-direction:column;gap:6px;text-decoration:none;background:#fff;border-radius:20px;padding:28px 26px 24px;
+    border:1px solid var(--line);border-top:6px solid var(--c);box-shadow:0 18px 40px -28px rgba(11,37,69,.45);transition:transform .25s ease,box-shadow .25s ease}
+  .kcard:hover{transform:translateY(-6px);box-shadow:0 28px 50px -28px rgba(11,37,69,.55)}
+  .k-MPI{--c:var(--mpi-c);--bg:var(--mpi-bg)} .k-MPP{--c:var(--mpp-c);--bg:var(--mpp-bg)}
+  .kic{width:56px;height:56px;border-radius:16px;background:var(--bg);color:var(--c);display:grid;place-items:center;margin-bottom:10px}
+  .kic svg{width:28px;height:28px}
+  .kcard .code{font-size:13.5px;font-weight:800;color:var(--c);letter-spacing:.04em}
+  .k-MPI .code{color:var(--mpi)} .k-MPP .code{color:var(--mpp)}
+  .kcard h3{font-size:22px;margin:2px 0 4px;letter-spacing:-.02em;line-height:1.2}
+  .kcard p{margin:0 0 12px;color:var(--muted);font-size:15.5px;flex:1}
+  .kstat{font-weight:700;font-size:15px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px}
+  .kstat b{font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--navy)}
+  .kstat i{font-style:normal;font-size:13px;font-weight:800;color:var(--mpi);background:var(--mpi-bg);padding:3px 10px;border-radius:999px}
+  .kgo{margin-top:14px;font-size:14.5px;font-weight:800;color:var(--c)}
+  .k-MPI .kgo{color:var(--mpi)} .k-MPP .kgo{color:var(--mpp)}
+  .kgo span{display:inline-block;transition:transform .2s}
+  .kcard:hover .kgo span{transform:translateX(5px)}
+  @media (max-width:900px){.tracks{grid-template-columns:1fr}}
+
+  /* filter berwarna */
+  .chip{border-radius:999px;padding:0 18px}
+  .chip[data-f="MPD"][aria-pressed="true"]{background:var(--mpd);border-color:var(--mpd)}
+  .chip[data-f="MPI"][aria-pressed="true"]{background:var(--mpi-c);border-color:var(--mpi-c);color:#3D2A05}
+  .chip[data-f="MPP"][aria-pressed="true"]{background:var(--mpp-c);border-color:var(--mpp-c);color:#04342E}
+
+  /* daftar materi: grid kartu */
+  .mgrp{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--navy);margin:34px 0 14px}
+  .mgrp:first-child{margin-top:4px}
+  .mgrp .dot{width:12px;height:12px;border-radius:4px;background:var(--mpd)}
+  .mg-MPI .dot{background:var(--mpi-c)} .mg-MPP .dot{background:var(--mpp-c)}
+  .mgrp small{font-size:13px;font-weight:800;color:var(--muted);background:var(--ice);padding:2px 10px;border-radius:999px}
+  .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:980px){.mgrid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:600px){.mgrid{grid-template-columns:1fr;gap:10px}}
+  .mcard{--c:var(--mpd);--bg:var(--mpd-bg);display:flex;flex-direction:column;gap:10px;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;
+    position:relative;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease,border-color .2s}
+  .mcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c)}
+  .m-MPI{--c:var(--mpi-c);--bg:var(--mpi-bg)} .m-MPP{--c:var(--mpp-c);--bg:var(--mpp-bg)}
+  .mcard:hover{transform:translateY(-3px);border-color:var(--c);box-shadow:0 16px 30px -22px rgba(11,37,69,.5)}
+  .mtop{display:flex;align-items:center;justify-content:space-between}
+  .mcode{font-size:13px;font-weight:800;color:var(--mpd);background:var(--bg);padding:3px 10px;border-radius:999px}
+  .m-MPI .mcode{color:var(--mpi)} .m-MPP .mcode{color:var(--mpp)}
+  .marr{color:var(--muted);font-weight:800;transition:transform .2s,color .2s}
+  .mcard:hover .marr{transform:translateX(4px);color:var(--navy)}
+  .mcard h3{margin:0;font-size:17px;line-height:1.35;letter-spacing:-.01em;flex:1}
+  .mchips{display:flex;flex-wrap:wrap;gap:6px}
+  .mc{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;color:var(--muted);background:#F3F6FA;padding:4px 10px;border-radius:8px}
+  .mc svg{width:14px;height:14px}
+  .mc.ck{color:#7A5410;background:var(--mpi-bg)}
+
+  /* cara belajar: langkah bernomor */
+  .steps{border-top:0;gap:18px;position:relative}
+  .steps::before{content:"";position:absolute;left:8%;right:8%;top:52px;border-top:2px dashed #B9CBE0;z-index:0}
+  .steps li{position:relative;z-index:1;background:#fff;border-radius:20px;padding:24px 22px 24px;box-shadow:0 18px 40px -30px rgba(11,37,69,.5);border:1px solid var(--line)}
+  .steps li::before{content:counter(s);position:absolute;top:18px;right:18px;margin:0;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+    font-size:14px;font-weight:800;color:#fff;background:var(--navy)}
+  .sic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;margin-bottom:16px;color:#fff;background:var(--mpd)}
+  .sic svg{width:28px;height:28px}
+  .steps li:nth-child(2) .sic{background:var(--mpp-c)}
+  .steps li:nth-child(3) .sic{background:var(--mpi-c)}
+  .steps li:nth-child(4) .sic{background:var(--navy)}
+  @media (max-width:900px){.steps::before{display:none}}
+
+  /* tautan: ubin berikon */
+  .info-grid{border-top:0;gap:14px}
+  .info-grid a{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;justify-content:flex-start;gap:14px;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .info-grid a > div{flex:1}
+  .info-grid a:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 16px 30px -22px rgba(11,37,69,.5)}
+  .info-grid a .tic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none;background:var(--mpd-bg);color:var(--mpd)}
+  .info-grid a .tic svg{width:22px;height:22px;color:inherit}
+  .info-grid a.t-teal .tic{background:var(--mpp-bg);color:var(--mpp)} .info-grid a.t-gold .tic{background:var(--mpi-bg);color:var(--mpi)} .info-grid a.t-navy .tic{background:#E4E9F1;color:var(--navy)}
+  .sosmed a{border-radius:999px}
+  .ic{background:var(--mpd-bg)}
+  .info-grid .soon{display:flex;align-items:center;gap:14px;background:#F7F9FC;border:1.5px dashed var(--line);border-radius:16px;padding:16px 18px;cursor:default}
+  .info-grid .soon > div{flex:1}
+  .info-grid .soon b{display:block;font-size:17px;font-weight:800;color:var(--muted)}
+  .info-grid .soon span{display:block;font-size:14.5px;color:var(--muted)}
+  .info-grid .soon .tic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none;background:#E9EEF5;color:#8A9AB0}
+  .info-grid .soon .tic svg{width:22px;height:22px}
+  .info-grid .soon em{font-style:normal;font-size:12.5px;font-weight:800;color:#7A5410;background:var(--mpi-bg);padding:4px 10px;border-radius:999px;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="logos">
+      <a class="brand" href="#top" aria-label="Pelatihan PICU Dasar, RSUD Dr. Saiful Anwar"><img src="img/logo-pelatihan.png" alt="Logo Pelatihan Keperawatan PICU RSUD Dr. Saiful Anwar"></a>
+      <span class="rssa"><img src="img/logo-rssa.png" alt="Logo RSUD Dr. Saiful Anwar"><span><b>RSUD Dr. Saiful Anwar</b>Provinsi Jawa Timur</span></span>
+    </div>
+    <nav aria-label="Navigasi utama">
+      <a class="link" href="#perjalanan">Perjalanan</a>
+      <a class="link" href="#galeri">Galeri</a>
+      <a class="link" href="#kelompok">Kurikulum</a>
+      <a class="link" href="#daftar">Materi pelatihan</a>
+      <a class="link" href="#alur">Cara belajar</a>
+      <a class="link" href="#info">Tautan</a>
+      <a class="link" href="#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="judul">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="badge">Pelatihan PICU Dasar</p>
+        <h1 id="judul">Kompeten merawat anak sakit kritis.</h1>
+        <p class="lead">Pelatihan PICU Dasar RSUD Dr. Saiful Anwar membekali perawat dengan modul resmi, slide narasumber, dan checklist ujian skill. Semua materi bisa dibuka dari HP, kapan saja.</p>
+      </div>
+      <div class="photo">
+        <div class="ph-frame"><img class="main" src="img/foto-picu.jpg" alt="Ilustrasi perawat PICU mendampingi keluarga di samping tempat tidur pasien anak yang terpasang ventilator"></div>
+        <div class="float f2" id="float-skill"><b>27</b><span>checklist ujian skill</span></div>
+        <div class="float f1" id="float-mp"><b>18</b><span>materi pelatihan</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="perks" aria-label="Isi materi">
+    <div class="wrap" id="perks"></div>
+  </div>
+
+  <!-- Ruang PICU 3D: animasi perjalanan pelatihan (ruang3d.css + ruang3d.js) -->
+  <section id="perjalanan" data-st="0" aria-labelledby="r3-judul">
+    <div class="r3-sticky">
+      <div class="r3-view" aria-hidden="true"><div class="r3-world"></div></div>
+      <div class="r3-shade"></div>
+      <div class="r3-confetti" aria-hidden="true"></div>
+      <p class="r3-hint" aria-hidden="true">Gulir untuk masuk ruangan ↓</p>
+      <div class="r3-card">
+        <p class="r3-eyebrow" id="r3-judul">Perjalanan pelatihan</p>
+        <ol class="r3-steps" aria-live="polite">
+          <li class="r3-step on"><small>Selamat datang</small><h3>Masuk ke ruang PICU</h3><p>Di balik pintu ini, anak-anak berjuang melewati masa kritisnya. Pelatihan PICU Dasar menyiapkan perawat yang tenang, cermat, dan siap mendampingi mereka.</p></li>
+          <li class="r3-step"><small>Langkah 1 · Pretest</small><h3>Mengenali titik awal</h3><p>Peserta memulai dengan pretest. Hasilnya menjadi peta: bagian mana yang sudah kuat, mana yang perlu diperdalam.</p></li>
+          <li class="r3-step"><small>Langkah 2 · Kelas teori</small><h3>Membangun dasar ilmu</h3><p>Narasumber membawakan materi dasar, inti, dan penunjang: bantuan hidup lanjut, intubasi dan ekstubasi, ventilasi mekanik, terapi oksigen, cairan dan hemodinamik, nutrisi, hingga perawatan yang melibatkan keluarga.</p></li>
+          <li class="r3-step"><small>Langkah 3 · Latihan skill</small><h3>Berlatih langkah demi langkah</h3><p>Setiap prosedur dipelajari bersama checklist-nya: suctioning, inhalasi, syringe dan infus pump, pengambilan kultur, sampai stabilisasi dan transportasi anak kritis. Diulang sampai urutannya hafal di tangan.</p></li>
+          <li class="r3-step"><small>Langkah 4 · Praktik klinik</small><h3>Belajar di samping tempat tidur</h3><p>Di ruang PICU, peserta merawat pasien anak bersama pembimbing klinik: membaca monitor dan ventilator, menyusun asuhan keperawatan, lalu mencatatnya di logbook.</p></li>
+          <li class="r3-step"><small>Langkah 5 · Ujian skill</small><h3>Membuktikan keterampilan</h3><p>Penguji menilai dengan checklist yang sama seperti saat berlatih. Tidak ada kejutan, yang dinilai adalah langkah yang sudah dikuasai.</p></li>
+          <li class="r3-step"><small>Hasil akhir</small><h3>Kembali ke ruangan, lebih siap</h3><p>Peserta pulang sebagai perawat PICU yang kompeten: merawat anak sakit kritis dengan aman dan merangkul keluarganya di setiap langkah.</p><a href="#daftar">Mulai belajar materi →</a></li>
+        </ol>
+        <div class="r3-dots" role="group" aria-label="Pilih tahap">
+          <button type="button" aria-label="Pembuka"></button><button type="button" aria-label="Pretest"></button><button type="button" aria-label="Kelas teori"></button><button type="button" aria-label="Latihan skill"></button><button type="button" aria-label="Praktik klinik"></button><button type="button" aria-label="Ujian skill"></button><button type="button" aria-label="Hasil akhir"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="galeri" aria-labelledby="gal-judul">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2 id="gal-judul" data-k="Galeri">Dokumentasi Angkatan I</h2>
+        <p>Momen pembukaan Pelatihan PICU Dasar di RSUD Dr. Saiful Anwar. Ketuk foto untuk memperbesar.</p>
+      </div>
+      <div class="mosaic reveal">
+        <figure style="margin:0" class="big"><button class="tile big" type="button" data-i="0" aria-label="Perbesar foto: Foto bersama peserta dan panitia Angkatan I"><img src="img/galeri/foto-bersama.jpg" alt="Foto bersama peserta dan panitia Angkatan I" loading="lazy" decoding="async"><figcaption>Foto bersama peserta dan panitia Angkatan I</figcaption></button></figure>
+        <figure style="margin:0" class=""><button class="tile" type="button" data-i="1" aria-label="Perbesar foto: Pembukaan pelatihan"><img src="img/galeri/pembukaan-panggung.jpg" alt="Pembukaan pelatihan" loading="lazy" decoding="async"><figcaption>Pembukaan pelatihan</figcaption></button></figure>
+        <figure style="margin:0" class=""><button class="tile" type="button" data-i="2" aria-label="Perbesar foto: Menyanyikan lagu Indonesia Raya"><img src="img/galeri/indonesia-raya.jpg" alt="Menyanyikan lagu Indonesia Raya" loading="lazy" decoding="async"><figcaption>Menyanyikan lagu Indonesia Raya</figcaption></button></figure>
+        <figure style="margin:0" class=""><button class="tile" type="button" data-i="3" aria-label="Perbesar foto: Sambutan pembukaan"><img src="img/galeri/sambutan.jpg" alt="Sambutan pembukaan" loading="lazy" decoding="async"><figcaption>Sambutan pembukaan</figcaption></button></figure>
+        <figure style="margin:0" class=""><button class="tile" type="button" data-i="4" aria-label="Perbesar foto: Suasana kelas"><img src="img/galeri/suasana-kelas.jpg" alt="Suasana kelas" loading="lazy" decoding="async"><figcaption>Suasana kelas</figcaption></button></figure>
+      </div>
+      <div class="gal-foot reveal">
+        <span>Foto lain tersedia di galeri Google Drive.</span>
+        <a class="btn btn-line btn-sm" href="https://drive.google.com/drive/folders/195nv7GPYctWEFG_WqL-TyiLIgoAMhKdj" target="_blank" rel="noopener">Lihat semua foto</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block ice" id="kelompok" aria-labelledby="kel-judul">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="kel-judul" data-k="Kurikulum">Kurikulum dalam tiga kelompok</h2>
+        <p>Materi pelatihan disusun dari dasar, inti, hingga penunjang. Ujian skill ada di kelompok inti.</p>
+      </div>
+      <div class="tracks reveal" id="tracks"></div>
+    </div>
+  </section>
+
+  <section class="block" id="daftar" aria-labelledby="daf-judul">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="daf-judul" data-k="Daftar materi">Materi pelatihan</h2>
+        <p>Pilih materi pelatihan untuk membuka modul, slide, dan checklist-nya.</p>
+      </div>
+      <div class="filters reveal" role="group" aria-label="Saring kelompok">
+        <button class="chip" type="button" data-f="ALL" aria-pressed="true">Semua</button>
+        <button class="chip" type="button" data-f="MPD" aria-pressed="false">Dasar</button>
+        <button class="chip" type="button" data-f="MPI" aria-pressed="false">Inti</button>
+        <button class="chip" type="button" data-f="MPP" aria-pressed="false">Penunjang</button>
+      </div>
+      <div id="rows"></div>
+    </div>
+  </section>
+
+  <section class="block ice" id="alur" aria-labelledby="alur-judul">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="alur-judul" data-k="Langkah belajar">Cara belajar</h2>
+        <p>Ikuti urutan ini untuk setiap materi pelatihan, terutama yang memiliki ujian skill.</p>
+      </div>
+      <ol class="steps reveal">
+        <li><span class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></span><h3>Baca modul</h3><p>Pahami konsep dan prosedur sebelum sesi kelas.</p></li>
+        <li><span class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg></span><h3>Ulas slide</h3><p>Ulangi poin penting dari presentasi narasumber.</p></li>
+        <li><span class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 12l3 3 5-6"/></svg></span><h3>Pelajari checklist</h3><p>Kenali setiap langkah yang dinilai penguji.</p></li>
+        <li><span class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span><h3>Ikuti ujian skill</h3><p>Praktikkan prosedur sesuai checklist di depan penguji.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Tautan pelatihan: sama dengan s.id/pelatihanpicudasar (tanpa PARTICIPANT, berisi data peserta) -->
+  <section class="band" aria-labelledby="band-judul">
+    <div class="wrap reveal">
+      <p class="badge">Angkatan I · April 2026</p>
+      <h2 id="band-judul">Belajar bersama, merawat lebih aman.</h2>
+      <p>Peserta belajar langsung dari narasumber, mempelajari modul dan checklist, lalu menguji keterampilannya lewat ujian skill.</p>
+      <div class="band-stats" id="band-stats"></div>
+    </div>
+  </section>
+
+  <section class="block ice" id="info" aria-labelledby="info-judul">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="info-judul" data-k="Info peserta">Tautan pelatihan</h2>
+        <p>Flyer, rundown, tata tertib, galeri, dan pengumpulan tugas. Semua dibuka di tab baru.</p>
+      </div>
+      <div class="info-grid reveal">
+        <a href="https://drive.google.com/file/d/18LOMCiJCpRe2vmJ6tjjKfHxw1ngAEznI/view" target="_blank" rel="noopener" class="t-blue"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-5-5-9 8"/></svg></span><div><b>Flyer Pelatihan PICU</b><span>Poster informasi pelatihan</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+        <!-- Rundown menyusul: ganti dengan <a href="LINK" target="_blank" rel="noopener" class="t-teal"> bila sudah ada -->
+        <div class="t-teal soon" aria-disabled="true"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Rundown</b><span>Jadwal kegiatan pelatihan</span></div><em>Menyusul</em></div>
+        <a href="https://drive.google.com/drive/folders/114o1HkEXGYEpf66aC4O59jTmY6qcpKQd" target="_blank" rel="noopener" class="t-gold"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><div><b>Learning Material</b><span>Folder materi di Google Drive</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+        <a href="https://docs.google.com/document/d/1qo_6Ev1tSy_HrG76OXGsbei8VzB_5rEP/edit?rtpof=true&amp;sd=true" target="_blank" rel="noopener" class="t-navy"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h3"/></svg></span><div><b>The Rule's</b><span>Tata tertib peserta</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+        <a href="https://drive.google.com/drive/folders/195nv7GPYctWEFG_WqL-TyiLIgoAMhKdj" target="_blank" rel="noopener" class="t-teal"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-5-5-9 8"/></svg></span><div><b>Galery</b><span>Dokumentasi kegiatan</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+        <a href="https://drive.google.com/drive/folders/1Im69XRbSpnI7DvYzk8kRVm8HxJFtHE6x" target="_blank" rel="noopener" class="t-blue"><span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg></span><div><b>Kumpulan Tugas</b><span>Folder pengumpulan tugas</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      </div>
+      <div class="sosmed"><span>Ikuti kami:</span>
+        <a href="https://www.tiktok.com/@pelatihanpicurssa" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.instagram.com/picu_rssa" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@PelatihanPICURSSA" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="kontak" aria-labelledby="kontak-judul">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="kontak-judul" data-k="Lokasi & kontak">Hubungi kami</h2>
+        <p>Pelatihan diselenggarakan di RSUD Dr. Saiful Anwar Provinsi Jawa Timur. Untuk informasi pelatihan, hubungi rumah sakit melalui kontak berikut.</p>
+      </div>
+      <div class="contact-grid reveal">
+        <ul class="contact-list">
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1E63B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <div><small>Alamat</small><span>Jl. Jaksa Agung Suprapto No. 2, Klojen, Kota Malang, Jawa Timur 65112</span></div></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1E63B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            <div><small>Telepon</small><a href="tel:+62341362101">(0341) 362101</a></div></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1E63B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+            <div><small>Website</small><a href="https://rsusaifulanwar.jatimprov.go.id" target="_blank" rel="noopener">rsusaifulanwar.jatimprov.go.id</a></div></li>
+        </ul>
+        <div class="map"><iframe title="Peta lokasi RSUD Dr. Saiful Anwar Malang" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=RSUD+Dr.+Saiful+Anwar,+Jl.+Jaksa+Agung+Suprapto+No.2,+Malang&output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-judul">
+    <div class="wrap cta-grid reveal">
+      <div>
+        <h2 id="cta-judul">Persiapkan ujian skill Anda</h2>
+        <p id="cta-text">Semua checklist yang dipakai penguji tersedia dalam satu halaman, siap dibaca atau dicetak.</p>
+      </div>
+      <a class="btn btn-white" href="materi.html#/checklist">Buka checklist skill</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-brand"><img src="img/logo-rssa.png" alt="">© 2026 Pelatihan PICU Dasar, RSUD Dr. Saiful Anwar Provinsi Jawa Timur</span>
+    <span>Materi khusus peserta pelatihan.</span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Foto dokumentasi">
+  <img id="lb-img" src="" alt="">
+  <div class="lb-bar"><p id="lb-cap"></p>
+    <div class="lb-btns"><button type="button" id="lb-prev" aria-label="Foto sebelumnya">‹</button><button type="button" id="lb-next" aria-label="Foto berikutnya">›</button><button type="button" id="lb-close">Tutup</button></div>
+  </div>
+</dialog>
+
+<script src="materi.js"></script>
+<script src="ruang3d.js" defer></script>
+<script>
+(function(){
+  // Alamat halaman per materi pelatihan di materi.html (slug sama dengan app.js: "MPI 4" → "mpi-4").
+  const linkModul = kode => "materi.html#/materi/" + String(kode).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+
+  const data = (typeof MATERI !== "undefined" && Array.isArray(MATERI)) ? MATERI : [];
+  const G = {
+    MPD:{nama:"Materi pelatihan dasar", ket:"Kebijakan, etik legal, berpikir kritis, keselamatan pasien, dan PFCC."},
+    MPI:{nama:"Materi pelatihan inti", ket:"Kompetensi klinis perawatan anak sakit kritis, dari kegawatdaruratan hingga dokumentasi."},
+    MPP:{nama:"Materi pelatihan penunjang", ket:"Building learning commitment, antikorupsi, dan rencana tindak lanjut."}
+  };
+  const n = (it,k) => Array.isArray(it[k]) ? it[k].length : (it[k] ? 1 : 0);
+  const tot = k => data.reduce((s,d)=>s+n(d,k),0);
+  const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+  if(data.length){
+    const skillMp = data.filter(d=>n(d,"checklist")).length;
+    document.getElementById("perks").innerHTML = `
+      <div class="perk"><b>${tot("modul")}</b><h3>Modul resmi</h3><p>Bahan bacaan tertulis untuk setiap materi pelatihan, dari dasar hingga inti.</p></div>
+      <div class="perk"><b>${tot("ppt")}</b><h3>Slide narasumber</h3><p>Presentasi dari dokter dan perawat ahli untuk mengulang materi kelas.</p></div>
+      <div class="perk"><b>${tot("checklist")}</b><h3>Checklist ujian skill</h3><p>Langkah prosedur yang dinilai penguji, siap dipelajari dan dicetak.</p></div>`;
+    document.querySelector("#float-skill b").textContent = tot("checklist");
+    document.querySelector("#float-mp b").textContent = data.length;
+    document.getElementById("cta-text").textContent =
+      `${tot("checklist")} checklist dari ${skillMp} materi pelatihan tersedia dalam satu halaman, siap dibaca atau dicetak.`;
+  }
+
+  const GIC = {
+    MPD:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>',
+    MPI:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/><path d="M3.5 12h4l2-3 3 6 2-3h6"/></svg>',
+    MPP:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.2a5 5 0 0 1 5.5 4.8"/></svg>'
+  };
+  const SH = {MPD:"Dasar",MPI:"Inti",MPP:"Penunjang"};
+  document.getElementById("tracks").innerHTML = Object.keys(G).map(g=>{
+    const it = data.filter(d=>d.kelompok===g);
+    const sk = it.filter(d=>n(d,"checklist")).length;
+    return `<a class="kcard k-${g}" href="#daftar" data-jump="${g}">
+      <span class="kic" aria-hidden="true">${GIC[g]}</span>
+      <span class="code">${g} · ${SH[g]}</span><h3>${G[g].nama}</h3><p>${G[g].ket}</p>
+      <span class="kstat"><b>${it.length}</b> materi${sk?` <i>${sk} dengan ujian skill</i>`:""}</span>
+      <span class="kgo">Lihat materi <span aria-hidden="true">→</span></span></a>`;
+  }).join("");
+
+  const rows = document.getElementById("rows");
+  const MI = {
+    modul:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>',
+    ppt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4"/></svg>',
+    checklist:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>'
+  };
+  const chip = (d,k,lbl,cls) => n(d,k) ? `<span class="mc ${cls||""}">${MI[k]}${n(d,k)} ${lbl}</span>` : "";
+  function render(f){
+    const keys = f==="ALL" ? Object.keys(G) : [f];
+    const html = keys.map(g=>{
+      const it = data.filter(d=>d.kelompok===g);
+      if(!it.length) return "";
+      return `<div class="mgrp mg-${g}"><span class="dot"></span>${G[g].nama}<small>${it.length}</small></div>
+        <div class="mgrid">` + it.map(d=>`
+          <a class="mcard m-${g}" href="${linkModul(d.kode)}">
+            <span class="mtop"><span class="mcode">${esc(d.kode)}</span><span class="marr" aria-hidden="true">→</span></span>
+            <h3>${esc(d.judul||("Materi "+d.kode))}</h3>
+            <span class="mchips">${chip(d,"modul","modul")}${chip(d,"ppt","slide")}${chip(d,"checklist","checklist","ck")}</span>
+          </a>`).join("") + `</div>`;
+    }).join("");
+    rows.innerHTML = html || `<p class="empty">Data materi belum termuat. Pastikan materi.js ada di folder yang sama dengan halaman ini.</p>`;
+  }
+  function setFilter(f){
+    document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed", String(x.dataset.f===f)));
+    render(f);
+  }
+  render("ALL");
+  document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>setFilter(b.dataset.f)));
+  document.querySelectorAll("[data-jump]").forEach(a=>a.addEventListener("click",()=>setFilter(a.dataset.jump)));
+
+  // angka di pita foto
+  if(data.length){
+    document.getElementById("band-stats").innerHTML = `
+      <div><b>${data.length}</b><span>materi pelatihan</span></div>
+      <div><b>${tot("modul")+tot("ppt")}</b><span>modul dan slide</span></div>
+      <div><b>${tot("checklist")}</b><span>checklist ujian skill</span></div>`;
+  }
+
+  // galeri: perbesar foto
+  const tiles=[...document.querySelectorAll(".tile")], lb=document.getElementById("lb");
+  let cur=0;
+  function show(i){
+    cur=(i+tiles.length)%tiles.length;
+    const im=tiles[cur].querySelector("img");
+    document.getElementById("lb-img").src=im.src; document.getElementById("lb-img").alt=im.alt;
+    document.getElementById("lb-cap").textContent=im.alt+" ("+(cur+1)+"/"+tiles.length+")";
+  }
+  if(lb && lb.showModal){
+    tiles.forEach((t,i)=>t.addEventListener("click",()=>{show(i);lb.showModal();}));
+    document.getElementById("lb-prev").onclick=()=>show(cur-1);
+    document.getElementById("lb-next").onclick=()=>show(cur+1);
+    document.getElementById("lb-close").onclick=()=>lb.close();
+    lb.addEventListener("click",e=>{if(e.target===lb)lb.close();});
+    lb.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")show(cur-1);if(e.key==="ArrowRight")show(cur+1);});
+  }else{
+    tiles.forEach(t=>t.addEventListener("click",()=>window.open(t.querySelector("img").src,"_blank")));
+  }
+
+  // animasi muncul saat di-scroll
+  if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+    document.documentElement.classList.add("js-reveal");
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{rootMargin:"0px 0px -8% 0px"});
+    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+  }
+})();
+</script>
+</body>
+</html>
