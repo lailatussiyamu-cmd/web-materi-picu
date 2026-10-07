@@ -1,7 +1,7 @@
 {
   // Jangan deploy langsung dari folder ini; jalankan ./deploy.sh
   // (membangun dist/ dari commit terakhir, tanpa .git, README, dll.)
-  "name": "materi-picu-rssa",
+  "name": "pelatihan",
   "compatibility_date": "2026-10-06",
   "assets": { "directory": "./dist" }
 }
